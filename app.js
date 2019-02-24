@@ -1,14 +1,6 @@
-const ButtonAdd = (props) => {
-  return (
-    <button onClick={props.add}>Dodaj</button>
-  )
-}
-
-const ButtonSubtract = (props) => {
-  return (
-    <button onClick={props.subtract}>Odejmij</button>
-  )
-}
+const AddBtn = props => <button className="btn" onClick={props.add}>Dodaj</button>
+const SubtractBtn = props => <button className="btn" onClick={props.subtract}>Odejmij</button>
+ 
 
 class Counter extends React.Component {
   state = {
@@ -30,9 +22,12 @@ class Counter extends React.Component {
   render() {
     return (
       <React.Fragment>
-          <ButtonAdd add={this.AddNumber}/>
-          <span> Licznik {this.state.counter} </span>
-          <ButtonSubtract subtract={this.SubtractNumber} />
+          
+          <h2> Licznik {this.state.counter} </h2>
+          <div className="box-btn">
+              <SubtractBtn subtract={this.SubtractNumber} />
+              <AddBtn add={this.AddNumber}/>
+          </div>
        </React.Fragment>
     )
   }
@@ -41,20 +36,32 @@ class Counter extends React.Component {
 const Element = () => {
   return ( 
     <React.Fragment>
-      <div> Counter 1 <br/>
-        <Counter />
+      <div className="box">
+        <h1>1</h1>
+        <div className="box-counter">
+            <Counter />
+        </div>
       </div>
       
-      <div> Counter 2 <br/>
-        <Counter />
+      <div className="box">
+        <h1>2</h1>
+        <div className="box-counter">
+            <Counter />
+        </div>
       </div>
       
-       <div> Counter 3 <br/>
-        <Counter />
+       <div className="box">
+        <h1>3</h1>
+        <div className="box-counter">
+            <Counter />
+        </div>
       </div>
       
-      <div> Counter 3 <br/>
-        <Counter />
+      <div className="box">
+        <h1>4</h1>
+        <div className="box-counter">
+            <Counter />
+      </div>
       </div>
     </React.Fragment>
   )
